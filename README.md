@@ -1,14 +1,12 @@
 # r3f-hdr-environment
 
-A React Three Fiber project demonstrating HDR environment mapping with an underwater scene.
+A React Three Fiber project demonstrating cube map environment mapping.
 
 ## Features
 
-- HDR environment mapping using .hdr files
+- Cube map environment mapping using 6-sided cubebox textures
 - Interactive camera controls with OrbitControls
 - Built with React Three Fiber and Three.js
-- Performance monitoring with r3f-perf
-- Debug GUI with lil-gui
 - Fast development with Vite
 
 ## Tech Stack
@@ -62,28 +60,38 @@ npm run preview
 
 ```
 r3f-hdr-environment/
+├── public/
+│   ├── px.jpg           # Positive X face
+│   ├── nx.jpg           # Negative X face
+│   ├── py.jpg           # Positive Y face
+│   ├── ny.jpg           # Negative Y face
+│   ├── pz.jpg           # Positive Z face
+│   └── nz.jpg           # Negative Z face
 ├── src/
 │   ├── App.jsx          # Main React Three Fiber scene
 │   ├── index.jsx        # Application entry point
 │   ├── index.html       # HTML template
 │   └── style.css        # Global styles
-├── static/
-│   └── underwater.hdr   # HDR environment map
 ├── package.json
 └── vite.config.js
 ```
 
 ## Usage
 
-The project displays an underwater HDR environment that can be explored using mouse controls:
+The project displays a cube map environment that can be explored using mouse controls:
 
 - **Left Click + Drag**: Rotate camera
 - **Right Click + Drag**: Pan camera
 - **Scroll**: Zoom in/out
 
-## HDR Environment
+## Cube Map Environment
 
-The project uses the `underwater.hdr` file located in the `static/` directory. You can replace this with your own HDR files to create different environments.
+The project uses 6 cube map images (px.jpg, nx.jpg, py.jpg, ny.jpg, pz.jpg, nz.jpg) located in the `public/` directory. You can replace these with your own cube map textures to create different environments.
+
+Each image represents one face of the cube:
+- px/nx: Positive/Negative X axis (right/left)
+- py/ny: Positive/Negative Y axis (top/bottom)
+- pz/nz: Positive/Negative Z axis (front/back)
 
 ## License
 
